@@ -1,0 +1,45 @@
+-- MySQL dump 10.13  Distrib 5.7.42, for Linux (x86_64)
+--
+-- Host: localhost    Database: scpper
+-- ------------------------------------------------------
+-- Server version	5.7.42-0ubuntu0.18.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+LOCK TABLES `dict_authorship` WRITE;
+/*!40000 ALTER TABLE `dict_authorship` DISABLE KEYS */;
+INSERT INTO `dict_authorship` VALUES (1,1,'Author'),(2,2,'Rewrite author'),(3,3,'Translator'),(4,4,'Contributor');
+/*!40000 ALTER TABLE `dict_authorship` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `dict_status` WRITE;
+/*!40000 ALTER TABLE `dict_status` DISABLE KEYS */;
+INSERT INTO `dict_status` VALUES (1,1,'Original'),(2,2,'Translation'),(3,3,'Rewrite');
+/*!40000 ALTER TABLE `dict_status` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `dict_page_kind` WRITE;
+/*!40000 ALTER TABLE `dict_page_kind` DISABLE KEYS */;
+INSERT INTO `dict_page_kind` VALUES (1,1,'SCP'),(2,2,'Tale'),(3,3,'Joke'),(4,4,'Art'),(5,5,'GOI'),(6,6,'Other'),(7,7,'Service'),(8,8,'Essay'),(9,9,'Audio'),(10,10,'Author page');
+/*!40000 ALTER TABLE `dict_page_kind` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-04-02 19:59:52
