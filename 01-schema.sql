@@ -1630,11 +1630,9 @@ proc_label:BEGIN
  SET i = 1;
  WHILE i <= Count DO	
 	SET UserStr = trim(replace(substring(substring_index(UserIds, ',', i), length(substring_index(UserIds, ',', i - 1)) + 1), ',', ''));
-    IF UserStr REGEXP '[[:digit:]]+' THEN
-		SET AUserId = CAST(UserStr as UNSIGNED);
-		IF AUserId > 0 THEN
-			INSERT INTO authors (PageId, RoleId, UserId) VALUES (APageId, ARoleId, AUserId);
-		END IF;
+    IF UserStr REGEXP '[\-]?[[:digit:]]+' THEN
+		SET AUserId = CAST(UserStr as SIGNED);
+		INSERT INTO authors (PageId, RoleId, UserId) VALUES (APageId, ARoleId, AUserId);
 	END IF;
     SET i = i + 1;
  END WHILE;  
