@@ -1187,7 +1187,9 @@ ALTER DATABASE `scpper` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50003 TRIGGER `votes_BEFORE_INSERT` BEFORE INSERT ON `votes` FOR EACH ROW BEGIN
   IF @DISABLE_TRIGGERS IS NULL THEN
-    SET NEW.DateTime = Now();
+    IF NEW.DateTime IS NULL THEN
+      SET NEW.DateTime = Now();
+    END IF;
     SET New.DeltaFromPrev = New.Value;
   END IF;
 END */;;
@@ -1211,7 +1213,9 @@ DELIMITER ;;
   IF @DISABLE_TRIGGERS IS NULL THEN
     IF OLD.Value <> NEW.Value THEN
       INSERT INTO vote_history (`PageId`, `UserId`, `Value`, `DateTime`, `DeltaFromPrev`) VALUES (OLD.PageId, OLD.UserId, Old.Value, Old.DateTime, Old.DeltaFromPrev);
-      SET New.DateTime = Now();
+      IF NEW.DateTime IS NULL THEN
+        SET New.DateTime = Now();
+      END IF;
       SET New.DeltaFromPrev = New.Value - Old.Value;
     END IF;
   END IF;
